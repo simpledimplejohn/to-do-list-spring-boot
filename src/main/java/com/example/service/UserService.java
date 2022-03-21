@@ -11,7 +11,6 @@ import com.example.model.User;
 @Service
 public class UserService {
 	@Autowired
-	public
 	UserRepository userRepo;
 	
 	public User addUser(User user) {
@@ -32,9 +31,9 @@ public class UserService {
 		userRepo.deleteById(id);
 	}
 	
-	public User findUserByEmailAndPassWord(String email , String passWord) {
+	public User findUserByEmailAndPassword(String email , String password) {
 		 
-		User user = userRepo.findByEmailAndPassWord(email, passWord).get(0);
+		User user = userRepo.findByEmailAndPassword(email, password).get(0);
 		
 		return user;
 	}

@@ -41,7 +41,7 @@ public class ToDoList {
 	@JsonBackReference
 	private User user;
 	
-	@OneToMany(mappedBy = "to_do_list", 
+	@OneToMany(mappedBy = "toDoList", 
 			cascade = CascadeType.ALL,
 			orphanRemoval = true)
 	@JsonManagedReference

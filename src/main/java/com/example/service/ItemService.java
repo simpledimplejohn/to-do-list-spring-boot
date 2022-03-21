@@ -21,6 +21,7 @@ public class ItemService {
 		return itemRepo.save(item);
 	}
 	
+	// TODO make this connection
 	public List<Item> findItemOfToDo(int id) {
 		return itemRepo.findAllByToDoList(id);
 	}

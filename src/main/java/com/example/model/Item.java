@@ -34,14 +34,17 @@ public class Item {
 	@ManyToOne()
 	@JoinColumn(name="to_do_list_id")
 	@JsonBackReference
-	private ToDoList to_do_list;
-	public Item(String dateCreated, String description, boolean completed, ToDoList to_do_list) {
+	private ToDoList toDoList;
+	public Item(String dateCreated, String description, boolean completed, ToDoList toDoList) {
 		super();
 		this.dateCreated = dateCreated;
 		this.description = description;
 		this.completed = completed;
-		this.to_do_list = to_do_list;
+		this.toDoList = toDoList;
 	}
+	
+	
+
 	
 	
 }

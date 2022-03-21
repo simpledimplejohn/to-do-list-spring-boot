@@ -10,7 +10,7 @@ import com.example.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer>{
 	
-	public List<User> findByEmailAndPassWord(String email, String password);
+	public List<User> findByEmailAndPassword(String email, String password);
 	
 	public List<User> findByEmail(String email);
 
