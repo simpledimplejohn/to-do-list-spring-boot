@@ -7,10 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.springframework.scheduling.config.Task;
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -32,5 +33,19 @@ public class ToDoList {
 	private String listName;
 	private String date;
 	private boolean complete;
+	@ManyToOne()
+	@JoinColumn(name="user_id")
+	@JsonBackReference
+	private User user;
 	private List<Item> taskList;
+	public ToDoList(String listName, String date, boolean complete, User user, List<Item> taskList) {
+		super();
+		this.listName = listName;
+		this.date = date;
+		this.complete = complete;
+		this.user = user;
+		this.taskList = taskList;
+	}
+	
+	
 }
