@@ -1,0 +1,42 @@
+package com.example.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.model.Item;
+import com.example.model.ToDoList;
+import com.example.service.ItemService;
+import com.example.service.ToDoService;
+import com.example.service.UserService;
+
+@RestController
+@RequestMapping("/lists")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+public class ListController {
+	
+	@Autowired
+	UserService userServ;
+	@Autowired
+	ToDoService toDoServ;
+	@Autowired
+	ItemService itemServ;
+	
+	@GetMapping("/")
+	public List<ToDoList> findAll() {
+		return toDoServ.findAll();
+	}
+	
+	@GetMapping("/{id}/itemList")
+	public List<Item> findItemByListId(@PathVariable("id") int id) {
+		ToDoList toDoList = toDoServ.findById(id);
+		return toDoList.getTaskList();
+		
+	}
+
+}
