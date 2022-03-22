@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,6 +38,16 @@ public class ListController {
 	public List<Item> findItemByListId(@PathVariable("id") int id) {
 		ToDoList toDoList = toDoServ.findById(id);
 		return toDoList.getTaskList();
+		
+	}
+	
+	@PutMapping("/{id}/add")
+	public Item addItemToList(@PathVariable("id") int id, @RequestBody Item item) {
+		ToDoList toDoList = toDoServ.findById(id);
+		item.setToDoList(toDoList);
+		itemServ.addItem(item);
+		return item;
+		
 		
 	}
 
