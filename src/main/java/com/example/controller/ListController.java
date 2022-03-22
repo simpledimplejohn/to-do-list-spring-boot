@@ -35,6 +35,11 @@ public class ListController {
 		return toDoServ.findAll();
 	}
 	
+	@GetMapping("/{id}")
+	public ToDoList findToDoListById(@PathVariable("id") int id) {
+		return toDoServ.findById(id);
+	}
+	
 	@GetMapping("/{id}/itemList")
 	public List<Item> findItemByListId(@PathVariable("id") int id) {
 		ToDoList toDoList = toDoServ.findById(id);
