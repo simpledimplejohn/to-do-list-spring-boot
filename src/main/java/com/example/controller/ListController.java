@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -47,8 +48,10 @@ public class ListController {
 		item.setToDoList(toDoList);
 		itemServ.addItem(item);
 		return item;
-		
-		
+	}
+	@DeleteMapping("/delete/{id}")
+	public void deleteItem(@PathVariable("id") int id) {
+		itemServ.removeItem(id);
 	}
 
 }
