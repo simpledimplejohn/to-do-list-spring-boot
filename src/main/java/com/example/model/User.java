@@ -31,7 +31,7 @@ public class User {
 	@Column(name="user_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String fristName;
+	private String firstName;
 	private String lastName;
 	private String userName;
 	private String email;
@@ -43,10 +43,10 @@ public class User {
 	private List<ToDoList> listOfList;
 	
 	
-	public User(String fristName, String lastName, String userName, String email, String password,
+	public User(String firstName, String lastName, String userName, String email, String password,
 			List<ToDoList> listOfList) {
 		super();
-		this.fristName = fristName;
+		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userName = userName;
 		this.email = email;

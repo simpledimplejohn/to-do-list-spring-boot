@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.model.ToDoList;
 import com.example.model.User;
 import com.example.service.ToDoService;
 import com.example.service.UserService;
@@ -48,6 +49,32 @@ public class UserController {
 	@PostMapping("/add")
 	public int addUser(@RequestBody User user) { 
 		return  userServ.addUser(user).getId();
+		
+	}
+	
+	@GetMapping("/{id}/findLists")
+	public List<ToDoList> findUsersLists(@PathVariable("id") int id) {
+		User u = userServ.getByUserId(id);
+		List<ToDoList> userList = u.getListOfList();
+		return userList;
+	}
+	
+	@PutMapping("/{id}/addListToList")
+	public User addListToUserList(@PathVariable("id") int id, @RequestBody ToDoList toDoList) {
+		User u = userServ.getByUserId(id);
+		toDoList.setUser(u);
+		toDoServ.addToDoList(toDoList);
+		List<ToDoList> listList = u.getListOfList();
+		listList.add(toDoList);
+		u.setListOfList(listList);
+		return u;
+	}
+	@DeleteMapping("/deleteListFromUserList/{lid}") 
+	public void deleteListFromUserList(@PathVariable("lid") int lid){
+		toDoServ.removeToDoList(lid);
+
+		
+		
 		
 	}
 	
