@@ -54,9 +54,53 @@ public class ListController {
 		itemServ.addItem(item);
 		return item;
 	}
+	
+	@PutMapping("/{id}/addArray")
+	public List<Item> addItemsToList(@PathVariable("id") int id, @RequestBody List<Item> items) {
+		
+		ToDoList list = toDoServ.findById(id);
+		
+		items.forEach((i) -> {
+			i.setToDoList(list);
+			itemServ.addItem(i);	
+		});
+		
+		
+		return items;
+	}
+
+
+	
+	
 	@DeleteMapping("/delete/{id}")
 	public void deleteItem(@PathVariable("id") int id) {
 		itemServ.removeItem(id);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

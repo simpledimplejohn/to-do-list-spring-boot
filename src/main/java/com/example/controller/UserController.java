@@ -34,6 +34,7 @@ public class UserController {
 		return userServ.getAllUsers();
 	}
 	
+// currently throws cors error 
 	@GetMapping("/{id}")
 	public User findUserById(@PathVariable("id") int id) {
 		return userServ.getByUserId(id);
