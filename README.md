@@ -40,15 +40,11 @@ As a user I can :
 | /users/find/<User>                                              | GET    | 200         | find a user by email and password                                   |
 | /users/:id                                                      | DELETE | 200         | Delete the user for the given ID                                    |
 | /users/{id}/findLists                                           | GET    | 200         | Returns a list of the users to-do-lists                             |
-| /users/{id}/addListToList                                       | PUT    | 201         | Adds a to-do-list to the users lists                                |          
-| /users/deleteListFromUserList{id}                               | Delete | 204         | delete a users to-do-list                                           |
-| ------------------------------------------------------------------- | ------ | ----------- | ------------------------------------------------------------------- |
+| /users/{id}/addListToList                                       | PUT    | 201         | Adds a to-do-list to the users lists                                |  | /users/deleteListFromUserList{id}                               | Delete | 204         | delete a users to-do-list                                           |
 | /items/                                                         | GET    | 200         | Returns a list of all items                                         |
 | /items/:id                                                      | GET    | 200         | Returns an item with the id                                         |
 | /items/delete/:id                                               | DELETE | 204         | Deletes the item with that id                                       |
 | /items/:lid/add/<Item>                                          | PUT    | 200         | Adds an item to a list by the list id (lid)                         |
-| ------------------------------------------------------------------- | ------ | ----------- | ------------------------------------------------------------------- |
-| /lists/
 | /lists/                                                         | GET    | 200         | Returns a list of all lists                                         |
 | /lists/:id                                                      | GET    | 200         | Returns an list with the id                                         |
 | /lists/add/<ToDoList>                                           | POST   | 201         | Creates a new list                                                  |
