@@ -34,27 +34,28 @@ As a user I can :
 
 | Route                                                               | Method | Status Code | Description                                                         |
 | ------------------------------------------------------------------- | ------ | ----------- | ------------------------------------------------------------------- |
-| /customers                                                          | GET    | 200         | Returns a list of all customers                                     |
-| /customers/:id                                                      | GET    | 200         | Returns a the user with the id                                      |
-| /customers/add                                                      | POST   | 201         | Creates a new user                                                  |
-| /customers/find/{username}                                          | POST   | 200         | find a user by username                                             |
-| /customers/:id                                                      | DELETE | 200         | Delete the user for the given ID                                    |
-| /customers/{id}/addCart                                             | PUT    | 201         | add cart to user                                                    |
-| /customers/{id}/addAlbumToCart/{id}                                 | PUT    | 201         | Add an album to a users cart                                        |            
-| /customers/{userId}/memory/{memoryId}                               | GET    | 200         | get memory with given ID for a user  with given user id             |         
-| /customers/{userId}/memory/{memoryId}                               | Delete | 204         | delete memory with given ID for a user  with given user id          | 
-| /album/find/{albumName}                                             | GET    |   200       |  finds album by album name                                          |
-| /album/findAlbumTrack/{id}                                          | GET    |   200       |  finds a track on the album by id                                   |
-| /album/{id}                                                         | GET    |   200       |  finds an album by id                                               |
-| /album/add                                                          | POST   |   201       |  adds an album                                                      |
-| /album/{id}/addtrack                                                | PUT    |   201       |  adds a track to an album by album id                               |
-| /album/{id}/addtracks                                               | PUT    |   201       |  adds a track list to an existing album                             |
-| /track/find{title}                                                  | GET    |   200       |  gets a track by track name                                         |    
-| /cart/                                                              | GET    |   200       |  Returns a list of all carts                                        |   
-| /cart/{id}                                                          | GET    |   200       |  Returns a cart by its id                                           |
-| /cart/add                                                           | POST   |   200       |  Adds a cart                                                        |
-
-
+| /users                                                          | GET    | 200         | Returns a list of all users                                         |
+| /users/:id                                                      | GET    | 200         | Returns a the user with the id                                      |
+| /users/add                                                      | POST   | 201         | Creates a new user                                                  |
+| /users/find/<User>                                              | GET    | 200         | find a user by email and password                                   |
+| /users/:id                                                      | DELETE | 200         | Delete the user for the given ID                                    |
+| /users/{id}/findLists                                           | GET    | 200         | Returns a list of the users to-do-lists                             |
+| /users/{id}/addListToList                                       | PUT    | 201         | Adds a to-do-list to the users lists                                |          
+| /users/deleteListFromUserList{id}                               | Delete | 204         | delete a users to-do-list                                           |
+| ------------------------------------------------------------------- | ------ | ----------- | ------------------------------------------------------------------- |
+| /items/                                                         | GET    | 200         | Returns a list of all items                                         |
+| /items/:id                                                      | GET    | 200         | Returns an item with the id                                         |
+| /items/delete/:id                                               | DELETE | 204         | Deletes the item with that id                                       |
+| /items/:lid/add/<Item>                                          | PUT    | 200         | Adds an item to a list by the list id (lid)                         |
+| ------------------------------------------------------------------- | ------ | ----------- | ------------------------------------------------------------------- |
+| /lists/
+| /lists/                                                         | GET    | 200         | Returns a list of all lists                                         |
+| /lists/:id                                                      | GET    | 200         | Returns an list with the id                                         |
+| /lists/add/<ToDoList>                                           | POST   | 201         | Creates a new list                                                  |
+| /lists/:id/itemList                                             | GET    | 200         | Returns a list of items by that list id                             |
+| /lists/:id/add/<Item>                                           | PUT    | 201         | Adds an item to that list by list id                                |
+| /lists/:id/addArray/List<Item>                                  | PUT    | 201         | Adds an array of items to a list by that lists id                   |
+| /lists/delete/:id                                               | DELETE | 204         | Deletes a list by its id                                            |
 
 ## Setup/Installation
 
